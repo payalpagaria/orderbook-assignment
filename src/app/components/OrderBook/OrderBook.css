@@ -1,0 +1,59 @@
+.orderbook {
+  background: #111;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  width: 50%;
+  font-family: monospace;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Wider price, narrower amount */
+  column-gap: 8px;
+  font-size: 12px;
+  height: 20px;
+  align-items: center;
+}
+
+
+.asks, .bids {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
+
+
+.ask {
+  color: #ff4b4b;
+  text-align: center;
+}
+
+.bid {
+  color: #00c076;
+    text-align: center;
+
+}
+.orderbook-title{
+  text-align: center;
+}
+.asks, .bids {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 15 * 20px; /* Ensures stable layout height */
+}
+
+.mid {
+  text-align: center;
+  padding: 6px 0;
+  color: #888;
+}
