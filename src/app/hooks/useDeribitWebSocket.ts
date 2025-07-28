@@ -28,18 +28,19 @@ export function useDeribitWebSocket(symbol = 'BTC-PERPETUAL') {
       const data = message?.params?.data
 
       if (data?.bids && data?.asks) {
-        console.log('[Deribit Raw]', data)
+        
         pending.current = normalizeDeribit(data)
       }
     }
+console.log('Updating Deribit OrderBook', pending.current)
 
     const interval = setInterval(() => {
       if (pending.current) {
         update('Deribit', pending.current)
-        console.log('[Deribit Updated]', pending.current)
+      
         pending.current = null
       }
-    }, 1000)
+    }, 700)
 
     return () => {
       socket.close()
@@ -47,4 +48,5 @@ export function useDeribitWebSocket(symbol = 'BTC-PERPETUAL') {
       console.log('[Deribit WS] Disconnected')
     }
   }, [symbol])
+  
 }

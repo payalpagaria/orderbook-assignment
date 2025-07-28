@@ -2,6 +2,7 @@
 
 import VenueTabs from './components/VenuTabs/VenueTabs'
 import OrderBook from './components/OrderBook/OrderBook'
+import OrderSimulationForm from './components/OrderSimulationForm/OrderSimulationForm';
 import { useOKXWebSocket } from './hooks/useOKXWebSocket'
 import { useOrderBookStore } from './store/orderBookStore'
 import { useDeribitWebSocket } from './hooks/useDeribitWebSocket';
@@ -19,7 +20,7 @@ export default function Home() {
       <h1>📈 Orderbook Simulator</h1>
       <VenueTabs active={venue} onChange={setVenue} />
       <OrderBook />
-      {/* OrderForm + Metrics will come next */}
+      <OrderSimulationForm/>
     </main>
   )
 }
