@@ -8,7 +8,7 @@ type SimulatedOrder = {
   orderType: 'Market' | 'Limit'
   side: 'Buy' | 'Sell'
   price: number
-  quantity: number
+  quantity: string
   delay: number
 }
 type Store = {

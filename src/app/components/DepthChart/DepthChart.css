@@ -1,0 +1,139 @@
+.depth-chart {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border: 1px solid #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.depth-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+}
+
+.depth-header h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.depth-info {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.mid-price {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.max-depth {
+  color: #aaa;
+}
+
+.chart-container {
+  background: #111;
+  border-radius: 8px;
+  padding: 0.5rem;
+  border: 1px solid #2a2a2a;
+}
+
+.depth-tooltip {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: white;
+  font-family: monospace;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip-label {
+  margin: 0 0 0.5rem 0;
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.tooltip-bid {
+  margin: 0;
+  color: #00c076;
+}
+
+.tooltip-ask {
+  margin: 0;
+  color: #ff4b4b;
+}
+
+.depth-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #333;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-color.bid {
+  background: #00c076;
+}
+
+.legend-color.ask {
+  background: #ff4b4b;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.no-data p {
+  margin: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .depth-chart {
+    margin-top: 1rem;
+    padding: 0.75rem;
+  }
+  
+  .depth-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .depth-info {
+    gap: 0.5rem;
+  }
+  
+  .depth-legend {
+    gap: 1rem;
+  }
+  
+  .chart-container {
+    padding: 0.25rem;
+  }
+} 

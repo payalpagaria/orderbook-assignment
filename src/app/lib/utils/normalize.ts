@@ -10,8 +10,9 @@ type OrderBook = {
 
 type SimulatedOrder = {
   price: number
-  quantity: number
+  quantity: string
   side: 'Buy' | 'Sell'
+  orderType?: 'Market' | 'Limit'
 }
 
 export function normalizeOKX(data: any) {
@@ -48,7 +49,7 @@ return { price, amount }
 
     }),
     asks: [...Array(15)].map((_, i) => {
-    const [price, amount] = data.bids?.[i] || [0, 0]
+    const [price, amount] = data.asks?.[i] || [0, 0]
     return { price, amount }
 
     }),
@@ -59,7 +60,7 @@ return { price, amount }
 
 export function estimateFillPercentage(book: OrderBook, order: SimulatedOrder): string {
   const side = order.side === 'Buy' ? book.asks : book.bids
-  let filled = 0, needed = order.quantity
+  let filled = 0, needed = Number(order.quantity)
 
   for (const level of side) {
     const fill = Math.min(level.amount, needed)
@@ -68,7 +69,7 @@ export function estimateFillPercentage(book: OrderBook, order: SimulatedOrder): 
     if (needed <= 0) break
   }
 
-  return ((filled / order.quantity) * 100).toFixed(2)
+  return ((filled / Number(order.quantity)) * 100).toFixed(2)
 }
 
 export function estimateSlippage(book: OrderBook, order: SimulatedOrder): string {
@@ -94,7 +95,7 @@ export function estimateImpact(book: OrderBook, order: SimulatedOrder): string {
   for (const level of levels) {
     totalQty += level.amount
     impactedLevels++
-    if (totalQty >= order.quantity) break
+    if (totalQty >= Number(order.quantity)) break
   }
 
   return `${impactedLevels} levels`
