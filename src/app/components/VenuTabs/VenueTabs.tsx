@@ -1,7 +1,13 @@
-const venues = ['OKX', 'Bybit', 'Deribit']
-import './VenueTabs.css'
+const venues = ['OKX', 'Bybit', 'Deribit'] as const
 
-export default function VenueTabs({ active, onChange }) {
+type Venue = typeof venues[number]
+
+interface VenueTabsProps {
+  active: Venue
+  onChange: (venue: Venue) => void
+}
+
+export default function VenueTabs({ active, onChange }: VenueTabsProps) {
   return (
     <div className="venueSelector" data-active={active}>
       {venues.map((v) => (
