@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import './OrderSimulationForm.css'
-import { useOrderBookStore } from '@/app/store/orderBookStore'
+import { useOrderBookStore, Venue } from '@/app/store/orderBookStore'
 const venues = ['OKX', 'Bybit', 'Deribit']
 const orderTypes = ['Market', 'Limit']
 const sides = ['Buy', 'Sell']
@@ -97,7 +97,7 @@ const setSimulatedOrder = useOrderBookStore((s) => s.setSimulatedOrder)
         <h4>🎯 Simulate Order</h4>
 
         <label>Venue</label>
-        <select value={venue} onChange={e => setVenue(e.target.value)}>
+        <select value={venue}   onChange={(e) => setVenue(e.target.value as Venue)}  >
           {venues.map(v => <option key={v} value={v}>{v}</option>)}
         </select>
 
