@@ -12,6 +12,7 @@ export default function VenueTabs({ active, onChange }: VenueTabsProps) {
     <div className="venueSelector" data-active={active}>
       {venues.map((v) => (
         <button
+        data-venue={v}                // <-- add this
           key={v}
           onClick={() => onChange(v)}
           className={v === active ? 'active' : ''}
